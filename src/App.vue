@@ -70,7 +70,7 @@ export default {
   components: { NumberStream, ForecastCard, WeatherBar, CurrentWeather },
   data() {
     return {
-      url_base_coor: "http://api.openweathermap.org/geo/1.0/",
+      url_base_coor: "https://api.openweathermap.org/geo/1.0/",
       api_key_weather: process.env.VUE_APP_API_KEY_WEATHER,
       url_base: "https://api.openweathermap.org/data/2.5/",
       query: "",
