@@ -1,0 +1,17 @@
+@use '../globals/_variables.scss' as *;
+
+.data-stream {
+    width: 100%;
+    margin-top: -27px;
+    display: flex;
+    z-index: -1;
+    right: 0;
+    justify-content: space-between;
+    overflow: hidden;
+    margin-left: 165px;
+    
+    .numbers {
+        padding: 4px;
+        color: $orange;
+    }
+}

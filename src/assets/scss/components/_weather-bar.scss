@@ -1,0 +1,23 @@
+@use '../globals/_variables.scss' as *;
+
+.weather-bar {
+    width: 100%;
+    height: 30px;
+    padding-top: 8px;
+    margin-bottom: 7px;
+    color: black;
+    font-weight: 600;
+
+    
+    .weather-bar-label {
+        float: left;
+        margin-left: 7px;
+    }
+
+    .weather-bar-value {
+        float: right;
+        margin-right: 7px;
+    }
+}
+
+

@@ -1,0 +1,62 @@
+/* FONT */
+$font: Antonio;
+
+h1 {
+  color:#f70;
+  padding: 0;
+  margin: 0px 7px 0 7px;
+  top: 0;
+}
+  
+h2 {
+  padding: 0;
+  top: 0;
+  font-size: 18px;
+  margin: 0 auto;
+}
+
+/* COLORS */
+$yellow:#FFFF99;
+$darkyellow: #FFCC66;
+$orange: #f70;
+$blue: #5599FF;
+$lightblue: #99CCFF;
+$peach: #ffaa90;
+$purple: #c9c;
+$black: #090909;
+$red: #CC6666;
+
+/* BACKGROUND COLOR */
+
+.yellow {
+  background-color: $yellow;
+}
+
+.darkyellow {
+  background-color: $darkyellow;
+}
+
+.blue {
+  background-color: $blue;
+}
+
+.lightblue {
+  background-color: $lightblue;
+}
+
+.peach {
+  background-color: $peach;
+}
+
+.purple {
+  background-color: $purple;
+}
+
+.black {
+  background-color: $black;
+}
+
+.red {
+  background-color: $red;
+}
+

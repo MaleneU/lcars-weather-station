@@ -1,0 +1,127 @@
+
+/* RESPONSIVENESS */
+
+@media screen and (max-width: 500px) {
+   
+    .data-stream {
+        margin-top: 0px;
+        margin-left: 0px;
+    
+        div {
+            &:nth-child(n+7) {
+             display: none;
+            } 
+        }
+            
+    }
+    
+}
+
+@media screen and (max-width: 580px) {
+    h1 {
+        display: none;
+    }
+    .app-container {
+        margin: 10px;
+    }
+
+    .bar-top {
+        display: none!important;
+    }
+
+    .search-bar {
+        margin: 0 auto!important;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .info-container {
+
+        &:first-of-type {
+            margin-right: 0px!important;
+        }
+    }
+}
+
+@media screen and (max-width: 750px) {
+  .panel-top-left {
+    display: none;
+  }
+  .top-content {
+      justify-content: center;
+  }
+  .app-container {
+      margin: 15px;
+  }
+  .bar-top {
+    display: none;
+  }
+
+
+    .data-stream {
+        margin-top: 0px;
+        margin-left: 0px;
+
+        div {
+            &:nth-child(n+12) {
+             display: none;
+            } 
+        }
+        
+    }
+
+  
+  
+}
+
+@media screen and (max-width: 880px) {
+  
+    .sidebar {
+        display: none;
+      }
+
+      
+
+    .info-container {
+       
+        margin-left: 0px !important;
+        margin-bottom: 14px;
+
+        &:first-of-type {
+            margin-right: 7px;
+        }
+    }
+
+   
+        .bar-top {
+        
+            &:nth-of-type(3) {
+                display: none;
+            }
+          }
+
+        .data-stream {
+            div {
+               &:nth-child(n+12) {
+                display: none;
+            } 
+            }
+
+        }
+}
+
+
+@media screen and (max-width: 1100px) {
+  
+   
+        .data-stream {
+            div {
+               &:nth-child(n+15) {
+                display: none;
+            } 
+            }
+
+        }
+   
+
+}

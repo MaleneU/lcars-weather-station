@@ -1,0 +1,17 @@
+.current-weather {
+    padding: 12px;
+}
+
+.weather-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 80px;
+    margin-bottom: 10px;
+}
+
+.weather-card-stats {
+    text-align: right;
+}
+
