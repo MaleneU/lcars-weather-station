@@ -17,3 +17,4 @@ jobs:
       env:
         VUE_APP_API_KEY_WEATHER: ${{ secrets.VUE_APP_API_KEY_WEATHER }}
         VUE_APP_API_KEY_MAP: ${{ secrets.VUE_APP_API_KEY_MAP }}
+        VUE_APP_API_KEY_MAP_SIGNATURE: ${{ secrets.VUE_APP_API_KEY_MAP_SIGNATURE }}
