@@ -5,7 +5,7 @@
       <div class="weather-card">
         <img
           v-bind:src="
-            'http://openweathermap.org/img/wn/' +
+            'https://openweathermap.org/img/wn/' +
             this.weather.current.weather[0].icon +
             '@2x.png'
           "

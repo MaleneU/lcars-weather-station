@@ -91,13 +91,12 @@ export default {
       ).then((resp) => {
         return resp.json();
 
-      }).then(this.setCoordinatesResults).then(this.fetchWeather);
+      }).then(this.setCoordinatesResults).then(this.fetchWeather).then(this.fetchMap);
     },
       setCoordinatesResults(resp) {
       this.coordinates = resp;
       this.lat = resp[0].lat;
       this.lon = resp[0].lon;
-      console.log(this.coordinates);
     },
     fetchWeather() {
       fetch(
@@ -111,8 +110,6 @@ export default {
     setWeatherResults(results) {
       this.weather = results;
       this.forecast = results.daily;
-      console.log(this.forecast);
-      console.log(this.weather);
     },
     fetchMap() {
       fetch(
