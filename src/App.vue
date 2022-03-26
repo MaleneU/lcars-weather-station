@@ -7,8 +7,8 @@
       <h1>Weather Station</h1>
       <div class="bar-top"></div>
       <div class="search-bar">
-        <input type="text" placeholder="ex. Los Angeles, US" v-model="query" />
-        <button type="submit" :disabled="!query" @click="fetchCoordinates();">
+        <input type="text" placeholder="ex. Los Angeles, US" v-model="query" v-on:keyup.enter="fetchCoordinates"/>
+        <button type="submit" :disabled="!query" @click="fetchCoordinates();" >
           <span>Scan</span>
         </button>
       </div>
@@ -16,11 +16,14 @@
     </section>
    
     <main>
-      <div class="sidebar"></div>
+      <div class="sidebar">
+        <div class="sidebar-block-1"></div>
+        <div class="sidebar-block-2"></div>
+      </div>
 
       <div class="main-content">
          <CurrentWeather :weather="weather" :coor="coordinates[0]" />
-        <div class="info-container">
+        <div class="info-container conditions">
           <div class="title">
             <h2>conditions</h2>
           </div>
@@ -33,27 +36,31 @@
           <WeatherBar :value="weather.current.wind_speed" :label="'Wind Speed'" :unit="' mph'" :class="'lightblue'"/>
           <WeatherBar :value="weather.current.wind_deg" :label="'wind direction'" :unit="'°'" :class="'lightblue'"/>
           </div>
-          <div v-else>scan city for weather data</div>
+          <div v-else class="no-input">scan city for weather data</div>
         </div>
-        <div class="info-container">
+        <div class="info-container location">
           <div class="title"><h2>location</h2></div>
           <div class="weather-map"><img v-if="weather?.current" :src="map"/></div>
         </div>
          <div class="info-container forecast">
-    <div class="title"><h2>Forecast</h2></div>
-  </div>
+           <div class="title"><h2>Forecast</h2></div>
+        </div>
 
        <ForecastCard :forecast="forecast[1]" />
        <ForecastCard :forecast="forecast[2]" />
        <ForecastCard :forecast="forecast[3]" />
        <ForecastCard :forecast="forecast[4]" />
-       <ForecastCard :forecast="forecast[5]" />
 
       </div>
     </main>
     
-    <section class="bottom-content"><div class="panel-bottom-left top-right-curve"></div>
-     
+    <section class="bottom-content">
+       <NumberStream class="data-bottom"/>
+      <div class="panel-bottom-left top-right-curve"></div>
+    
+      <div class="bar-bottom"></div>
+      <div class="bar-bottom bar-bottom-2 grow-2"></div>
+  
       </section>
 
   </div>
@@ -73,7 +80,7 @@ export default {
       url_base_coor: "https://api.openweathermap.org/geo/1.0/",
       api_key_weather: process.env.VUE_APP_API_KEY_WEATHER,
       url_base: "https://api.openweathermap.org/data/2.5/",
-      query: "",
+      query: "los angeles, us",
       weather: {},
       coordinates: {},
       api_key_map: process.env.VUE_APP_API_KEY_MAP,
@@ -89,14 +96,21 @@ export default {
       fetch(
         `${this.url_base_coor}direct?q=${this.query}&appid=${this.api_key_weather}`
       ).then((resp) => {
+        if (resp.ok) {
         return resp.json();
-
+        }
+        var errorSound = new Audio('https://www.stdimension.org/MediaLib/effects/computer/federation/inputfailed1.wav');
+        errorSound.play();
+        
       }).then(this.setCoordinatesResults).then(this.fetchWeather).then(this.fetchMap);
     },
       setCoordinatesResults(resp) {
       this.coordinates = resp;
       this.lat = resp[0].lat;
       this.lon = resp[0].lon;
+      var beep = new Audio('https://www.stdimension.org/MediaLib/effects/computer/federation/voiceinput2.wav');
+      beep.play();
+
     },
     fetchWeather() {
       fetch(
@@ -125,10 +139,7 @@ export default {
     }, 
   },
   mounted() {
-    //this.fetchWeather();
-    //this.fetchMap();
-    
-  
+    this.fetchCoordinates();
 
   },
 };
